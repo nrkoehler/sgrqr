@@ -67,7 +67,7 @@ scoring_sgrq <- function( X, id = '') {
   # define variable names
   sgrq.ss <- paste0("sgrq.", 1:8)
   # calculate number of missing items
-  X$NMISS <- rowSums(is.na(X[, c(a:z)]))
+  X$NMISS.ss <- rowSums(is.na(X[, c(a:z)]))
   # replace missing values with highest score
   for (i in a:z) {
     for (j in 1:nrow(X)){
@@ -76,8 +76,7 @@ scoring_sgrq <- function( X, id = '') {
   # calculate score
   X$sgrq.ss <- rowSums(X[, paste0("sgrq.", seq(1, 8, 1))]) / 662.5 * 100
   X$sgrq.ss <- round(X$sgrq.ss, 1)
-  X$sgrq.ss <- ifelse(X$NMISS > 2, NA, X$sgrq.ss)
-  #X$NMISS <- NULL
+  X$sgrq.ss <- ifelse(X$NMISS.ss > 2, NA, X$sgrq.ss)
   comment(X$sgrq.ss) <- "SGRQ - Symptoms Score (0-100)"
 
   ###############################
@@ -92,17 +91,16 @@ scoring_sgrq <- function( X, id = '') {
   # define variable names
   sgrq.as <- paste0("sgrq.", 9:24)
   # calculate number of missing items
-  X$NMISS <- rowSums(is.na(X[, sgrq.as]))
+  X$NMISS.as <- rowSums(is.na(X[, c(a:z)]))
   # replace missing values with highest score
   for (i in a:z) {
     for (j in 1:nrow(X)){
-      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i+a-1], X[j, i])
+      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-9], X[j, i])
     }}
   # calculate score
   X$sgrq.as <- rowSums(X[, paste0("sgrq.", 9:24)]) / 1209.1 * 100
   X$sgrq.as <- round(X$sgrq.as, 1)
-  X$sgrq.as <- ifelse(X$NMISS > 4, NA, X$sgrq.as)
- # X$NMISS <- NULL
+  X$sgrq.as <- ifelse(X$NMISS.as > 4, NA, X$sgrq.as)
   comment(X$sgrq.as) <- "SGRQ - Activity Score (0-100)"
 
 
@@ -118,24 +116,26 @@ scoring_sgrq <- function( X, id = '') {
   # define variable names
   sgrq.is <- paste0("sgrq.", seq(25, 50, 1))
   # calculate number of missing items
-  X$NMISS <- rowSums(is.na(X[, sgrq.is]))
+  X$NMISS.is <- rowSums(is.na(X[, c(a:z)]))
   # replace missing values with highest score
   for (i in a:z) {
     for (j in 1:nrow(X)){
-      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i+a-1], X[j, i])
+      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-25], X[j, i])
     }}
   # calculate score
   X$sgrq.is <- rowSums(X[, paste0("sgrq.", seq(25, 50, 1))]) / 2117.8 * 100
   X$sgrq.is <- round(X$sgrq.is, 1)
-  X$sgrq.is <- ifelse(X$NMISS > 6, NA, X$sgrq.is)
-  X$NMISS <- NULL
+  X$sgrq.is <- ifelse(X$NMISS.is > 6, NA, X$sgrq.is)
+ # X$NMISS <- NULL
   comment(X$sgrq.is) <- "SGRQ - Impacts Score (0-100)"
 
   ## Total Score (50 items)
   # define variable names
 
   sgrq.ts <- paste0("sgrq.", seq(1, 50, 1))
+  X$NMISS <- X$NMISS.ss + X$NMISS.as + X$NMISS.is
   X$sgrq.ts <- sum.n(X[, paste0("sgrq.", 1:50)], 50) / 3989.4 * 100
+  X$sgrq.ts <- ifelse(X$NMISS > 12, NA, X$sgrq.ts)
   X$sgrq.ts <- round(X$sgrq.ts, 1)
 
 
