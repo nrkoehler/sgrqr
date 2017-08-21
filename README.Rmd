@@ -1,0 +1,33 @@
+---
+output: github_document
+bibliography: references/References.bib
+biblio-style: apalike
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  error = FALSE, 
+  message = FALSE,
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,
+  out.width = "70%",
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figures/",
+  tidy = FALSE
+)
+
+```
+
+# `sgrqr`
+
+
+## Installation
+
+```{r, eval=FALSE}
+devtools::install_github("nrkoehler/sgrqr")
