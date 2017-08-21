@@ -74,7 +74,7 @@ scoring_sgrq <- function( X, id = '') {
       X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-1], X[j, i])
     }}
   # calculate score
-  X$sgrq.ss <- rowSums(X[, paste0("sgrq.", seq(1, 8, 1))]) / 662.5 * 100
+  X$sgrq.ss <- rowSums(X[, paste0("sgrq.", a:z)]) / 662.5 * 100
   X$sgrq.ss <- round(X$sgrq.ss, 1)
   X$sgrq.ss <- ifelse(X$NMISS.ss > 2, NA, X$sgrq.ss)
   comment(X$sgrq.ss) <- "SGRQ - Symptoms Score (0-100)"
@@ -98,7 +98,7 @@ scoring_sgrq <- function( X, id = '') {
       X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-9], X[j, i])
     }}
   # calculate score
-  X$sgrq.as <- rowSums(X[, paste0("sgrq.", 9:24)]) / 1209.1 * 100
+  X$sgrq.as <- rowSums(X[, paste0("sgrq.", a:z)]) / 1209.1 * 100
   X$sgrq.as <- round(X$sgrq.as, 1)
   X$sgrq.as <- ifelse(X$NMISS.as > 4, NA, X$sgrq.as)
   comment(X$sgrq.as) <- "SGRQ - Activity Score (0-100)"
@@ -123,7 +123,7 @@ scoring_sgrq <- function( X, id = '') {
       X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-25], X[j, i])
     }}
   # calculate score
-  X$sgrq.is <- rowSums(X[, paste0("sgrq.", seq(25, 50, 1))]) / 2117.8 * 100
+  X$sgrq.is <- rowSums(X[, paste0("sgrq.", a:z)]) / 2117.8 * 100
   X$sgrq.is <- round(X$sgrq.is, 1)
   X$sgrq.is <- ifelse(X$NMISS.is > 6, NA, X$sgrq.is)
  # X$NMISS <- NULL
@@ -134,7 +134,7 @@ scoring_sgrq <- function( X, id = '') {
 
   sgrq.ts <- paste0("sgrq.", seq(1, 50, 1))
   X$NMISS <- X$NMISS.ss + X$NMISS.as + X$NMISS.is
-  X$sgrq.ts <- sum.n(X[, paste0("sgrq.", 1:50)], 50) / 3989.4 * 100
+  X$sgrq.ts <- sum.n(X[, paste0("sgrq.", a:z)], 50) / 3989.4 * 100
   X$sgrq.ts <- ifelse(X$NMISS > 12, NA, X$sgrq.ts)
   X$sgrq.ts <- round(X$sgrq.ts, 1)
 
