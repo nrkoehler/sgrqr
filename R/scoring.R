@@ -63,20 +63,21 @@ scoring_sgrq <- function( X, id = '') {
   for (i in 1:8){
     repl.val[i] = max(reg.weights[i], na.rm = TRUE)
   }
+  a <- which(names(X)=="sgrq.1");   z <- which(names(X)=="sgrq.8")
   # define variable names
-  sgrq.ss <- paste0("sgrq.", seq(1, 8, 1))
+  sgrq.ss <- paste0("sgrq.", 1:8)
   # calculate number of missing items
-  X$NMISS <- rowSums(is.na(X[, sgrq.ss]))
+  X$NMISS <- rowSums(is.na(X[, c(a:z)]))
   # replace missing values with highest score
-  for (i in seq_along(sgrq.ss)) {
+  for (i in a:z) {
     for (j in 1:nrow(X)){
-      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i], X[j, i])
+      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i-1], X[j, i])
     }}
   # calculate score
   X$sgrq.ss <- rowSums(X[, paste0("sgrq.", seq(1, 8, 1))]) / 662.5 * 100
   X$sgrq.ss <- round(X$sgrq.ss, 1)
   X$sgrq.ss <- ifelse(X$NMISS > 2, NA, X$sgrq.ss)
-  X$NMISS <- NULL
+  #X$NMISS <- NULL
   comment(X$sgrq.ss) <- "SGRQ - Symptoms Score (0-100)"
 
   ###############################
@@ -87,20 +88,21 @@ scoring_sgrq <- function( X, id = '') {
   for (i in 9:24){
     repl.val[i-8] = max(reg.weights[i], na.rm = TRUE)
   }
+  a <- which(names(X)=="sgrq.9");   z <- which(names(X)=="sgrq.24")
   # define variable names
-  sgrq.as <- paste0("sgrq.", seq(9, 24, 1))
+  sgrq.as <- paste0("sgrq.", 9:24)
   # calculate number of missing items
   X$NMISS <- rowSums(is.na(X[, sgrq.as]))
   # replace missing values with highest score
-  for (i in seq_along(sgrq.as)) {
+  for (i in a:z) {
     for (j in 1:nrow(X)){
-      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i], X[j, i])
+      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i+a-1], X[j, i])
     }}
   # calculate score
-  X$sgrq.as <- rowSums(X[, paste0("sgrq.", seq(9, 24, 1))]) / 1209.1 * 100
+  X$sgrq.as <- rowSums(X[, paste0("sgrq.", 9:24)]) / 1209.1 * 100
   X$sgrq.as <- round(X$sgrq.as, 1)
   X$sgrq.as <- ifelse(X$NMISS > 4, NA, X$sgrq.as)
-  X$NMISS <- NULL
+ # X$NMISS <- NULL
   comment(X$sgrq.as) <- "SGRQ - Activity Score (0-100)"
 
 
@@ -112,14 +114,15 @@ scoring_sgrq <- function( X, id = '') {
   for (i in 25:50){
     repl.val[i-24] = max(reg.weights[i], na.rm = TRUE)
   }
+  a <- which(names(X)=="sgrq.25");   z <- which(names(X)=="sgrq.50")
   # define variable names
   sgrq.is <- paste0("sgrq.", seq(25, 50, 1))
   # calculate number of missing items
   X$NMISS <- rowSums(is.na(X[, sgrq.is]))
   # replace missing values with highest score
-  for (i in seq_along(sgrq.is)) {
+  for (i in a:z) {
     for (j in 1:nrow(X)){
-      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i], X[j, i])
+      X[j, i] <- ifelse(is.na(X[j, i] == TRUE), repl.val[i+a-1], X[j, i])
     }}
   # calculate score
   X$sgrq.is <- rowSums(X[, paste0("sgrq.", seq(25, 50, 1))]) / 2117.8 * 100
@@ -130,8 +133,9 @@ scoring_sgrq <- function( X, id = '') {
 
   ## Total Score (50 items)
   # define variable names
+
   sgrq.ts <- paste0("sgrq.", seq(1, 50, 1))
-  X$sgrq.ts <- sum.n(X[, paste0("sgrq.", seq(1, 50, 1))], 50) / 3989.4 * 100
+  X$sgrq.ts <- sum.n(X[, paste0("sgrq.", 1:50)], 50) / 3989.4 * 100
   X$sgrq.ts <- round(X$sgrq.ts, 1)
 
 
