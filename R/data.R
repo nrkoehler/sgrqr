@@ -6,6 +6,10 @@
 df.full <- data.frame(matrix(ncol=51, nrow=100))
 colnames(df.full) <- c('id', paste0('sgrq.', seq(1, 50, 1)))
 df.full$id <- as.character(c(1:100))
+df.full[1, 2:10] <- 1
+df.full[1, 11] <- 2
+df.full[1, 12:50] <- 1
+df.full[1, 51] <- 3
 
 
 for (i in 2:8){
