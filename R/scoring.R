@@ -8,6 +8,12 @@
 #' @export
 scoring_sgrq <- function( X, id = '') {
 
+# SORT VARIABLES IN DATA FRAME --------------------------------------------
+  
+  X <- X %>%
+    select(sgrq.1:sgrq.8, # symptoms
+           sgrq.11a:sgrq.11g, sgrq.15a:sgrq.15i, # activity
+           sgrq.9:sgrq.10, sgrq.12a:sgrq.14d, sgrq.16a:sgrq.17) # impacts
 
 # STEP 1: INPUT DATA ------------------------------------------------------
 
@@ -39,12 +45,7 @@ scoring_sgrq <- function( X, id = '') {
   }
 
 
-# SORT VARIABLES IN DATA FRAME --------------------------------------------
 
-X <- X %>%
-  select(sgrq.1:sgrq.8, # symptoms
-         sgrq.11a:sgrq.11g, sgrq.15a:sgrq.15i, # activity
-         sgrq.9:sgrq.10, sgrq.12a:sgrq.14d, sgrq.16a:sgrq.17) # impacts
 
 # RECODE DATA -------------------------------------------------------------
 
