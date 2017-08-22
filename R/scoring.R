@@ -62,12 +62,12 @@ scoring_sgrq <- function( X, id = '') {
 
   for (j in 1:ncol(reg.weights)){
     for (k in 1:nrow(X)){
-      X[k, j+1] <- unlist(ifelse(X[k, j+1] == 0, reg.weights[1, j],
-                                    ifelse(X[k, j+1] == 1, reg.weights[2, j],
-                                           ifelse(X[k, j+1] == 2, reg.weights[3, j],
-                                                  ifelse(X[k, j+1] == 3, reg.weights[4, j],
-                                                         ifelse(X[k, j+1] == 4, reg.weights[5, j],
-                                                                ifelse(X[k, j+1] == 5, reg.weights[6, j], NA)))))))
+      X[k, j] <- unlist(ifelse(X[k, j] == 0, reg.weights[1, j],
+                                    ifelse(X[k, j] == 1, reg.weights[2, j],
+                                           ifelse(X[k, j] == 2, reg.weights[3, j],
+                                                  ifelse(X[k, j] == 3, reg.weights[4, j],
+                                                         ifelse(X[k, j] == 4, reg.weights[5, j],
+                                                                ifelse(X[k, j] == 5, reg.weights[6, j], NA)))))))
     }
 
   }
