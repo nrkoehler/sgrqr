@@ -4,7 +4,7 @@
 \name{reg.weights}
 \alias{reg.weights}
 \title{Regression weights for SGRQ items}
-\format{A data frame with 51 variables (id, sgrq.1 -- sgrq.17) and six rows}
+\format{A data frame with 51 variables (id, sgrq.1 -- sgrq.50) and six rows}
 \usage{
 reg.weights
 }
