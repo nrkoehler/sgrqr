@@ -5,6 +5,7 @@ Version: 0.1.0
 Authors@R: person("Norbert", "Koehler", email = "norbert.r.koehler@gmail.com", role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: Scoring the St. George Respiratory Questionnaire (SGRQ)
+depends: dplyr
 License: MRT
 Encoding: UTF-8
 LazyData: true

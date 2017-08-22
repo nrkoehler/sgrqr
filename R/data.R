@@ -4,7 +4,13 @@
 
 
 df.full <- data.frame(matrix(ncol=51, nrow=100))
-colnames(df.full) <- c('id', paste0('sgrq.', seq(1, 50, 1)))
+colnames(df.full) <- c('id', c(paste0("sgrq.", 1:8), 
+                               paste0("sgrq11.", letters[1:7]), 
+                               paste0("sgrq15.", letters[1:9]),
+                               'sgrq.9', 'sgrq.10',
+                               paste0("sgrq.12", letters[1:6]), paste0("sgrq.13", letters[1:8]),
+                               paste0("sgrq.14", letters[1:4]), 
+                               paste0("sgrq.16", letters[1:5]), 'sgrq.17'))
 df.full$id <- as.character(c(1:100))
 df.full[1, 2:10] <- 1
 df.full[1, 11] <- 2
@@ -36,5 +42,5 @@ df.na[sample(2:nrow(df.na), 10), i] <- NA
 #'
 #' A data frame containing the regression weights for SGRQ items
 #'
-#' @format A data frame with 51 variables (id, sgrq.1 -- sgrq.50) and six rows
+#' @format A data frame with 51 variables (id, sgrq.1 -- sgrq.17) and six rows
 "reg.weights"
