@@ -13,6 +13,7 @@ colnames(df.full) <- c('id', c(paste0("sgrq.", 1:8),
                                paste0("sgrq.16", letters[1:5]), 'sgrq.17'))
 df.full$id <- as.character(c(1:100))
 
+
 for (i in c(2:8)){
   df.full[i] = round(runif(100, min = 1, max = 5))
 }
@@ -23,6 +24,18 @@ for (i in c(9:25, 28:50)){
 
 df.full[26] <- round(runif(100, min = 0, max = 3))
 df.full[27] <- round(runif(100, min = 0, max = 2))
+
+for (i in 2:8){
+  df.full[i] = round(runif(100, min = 1, max = 5))
+}
+
+for (i in c(9, 12:50)){
+  df.full[i] = round(runif(100, min = 0, max = 1))
+}
+
+df.full[10] <- round(runif(100, min = 1, max = 3))
+df.full[11] <- round(runif(100, min = 0, max = 2))
+
 df.full[51] <- round(runif(100, min = 0, max = 3))
 
 df.full[1, 2:8] <- 1

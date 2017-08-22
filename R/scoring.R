@@ -18,12 +18,19 @@ scoring_sgrq <- function( X, id = '') {
 # STEP 1: INPUT DATA ------------------------------------------------------
 
 
+<<<<<<< HEAD
   items = c(paste0("sgrq.", 1:8), 
             paste0("sgrq.11", letters[1:7]), paste0("sgrq.15", letters[1:9]),
             'sgrq.9', 'sgrq.10',
             paste0("sgrq.12", letters[1:6]), paste0("sgrq.13", letters[1:8]),
             paste0("sgrq.14", letters[1:4]), paste0("sgrq.16", letters[1:5]), 
             'sgrq.17')
+=======
+  items = c(paste0("sgrq.", 1:10), paste0("sgrq.11", letters[1:7]), 
+            paste0("sgrq.12", letters[1:6]), paste0("sgrq.13", letters[1:8]),
+            paste0("sgrq.14", letters[1:4]), paste0("sgrq.15", letters[1:9]),
+            paste0("sgrq.16", letters[1:5]), 'sgrq.17')
+>>>>>>> bc0c9a3fb862ca50224ae1f0432765e610c755ae
   if (length(which(is.element(items, colnames(X)))) < 50) {
     stop("At least one item is missing: items must be named sgrq.1 to sgrq.50")
     break
