@@ -184,4 +184,3 @@ scoring_sgrq <- function( X, id = '') {
 }
 
 
-
