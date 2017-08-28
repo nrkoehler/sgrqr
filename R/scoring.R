@@ -52,6 +52,12 @@ scoring_sgrq <- function( X, id = '') {
     Y[, 1] = X[, id]
     colnames(Y) = c(id, "sgrq.ss", "sgrq.as", "sgrq.is", "sgrq.ts")
   }
+  if (id == "") {
+    Y = matrix(nrow = nrow(X), ncol = 5)
+    Y = as.data.frame(Y)
+    colnames(Y) = c("sgrq.ss", "sgrq.as", "sgrq.is", "sgrq.ts")
+  }
+  
 
 
 
