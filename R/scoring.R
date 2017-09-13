@@ -38,12 +38,28 @@ scoring_sgrq <- function( X, id = '') {
     stop("Items must be numeric")
     break
   }
-  if (min(X[, items], na.rm = T) < 0) {
+  if (min(X[, items[1:7]], na.rm = T) < 1) {
+    stop("Minimum possible value for items is 1")
+    break
+  }
+  if (max(X[, items[1:7]], na.rm = T) > 5) {
+    stop("Maximum possible value for items is 5")
+    break
+  }
+  if (min(X[, items[8:50]], na.rm = T) < 0) {
     stop("Minimum possible value for items is 0")
     break
   }
-  if (max(X[, items[1:50]], na.rm = T) > 5) {
-    stop("Maximum possible value for items is 5")
+  if (max(X[, items[c(8:24, 27:49)]], na.rm = T) > 1) {
+    stop("Maximum possible value for items is 1")
+    break
+  }
+  if (max(X[, items[c(25, 50)]], na.rm = T) > 3) {
+    stop("Maximum possible value for items is 3")
+    break
+  }
+  if (max(X[, items[26]], na.rm = T) > 2) {
+    stop("Maximum possible value for items is 2")
     break
   }
   if (id != "") {
@@ -53,9 +69,8 @@ scoring_sgrq <- function( X, id = '') {
     colnames(Y) = c(id, "sgrq.ss", "sgrq.as", "sgrq.is", "sgrq.ts")
   }
   if (id == "") {
-    Y = matrix(nrow = nrow(X), ncol = 5)
+    Y = matrix(nrow = nrow(X), ncol = 4)
     Y = as.data.frame(Y)
-    Y[, 1] = X[, id]
     colnames(Y) = c("sgrq.ss", "sgrq.as", "sgrq.is", "sgrq.ts")
   }
   
@@ -183,6 +198,5 @@ scoring_sgrq <- function( X, id = '') {
   Y
 
 }
-
 
 
