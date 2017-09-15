@@ -3,6 +3,8 @@
 `sgrqr`
 =======
 
+### Scoring the St George's Respiratory Questionnaire
+
 <img src="figures/sri-1.png" width="200" style="display: block; margin: auto auto auto 0;" />
 
 Package Description
