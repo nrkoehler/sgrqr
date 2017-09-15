@@ -33,12 +33,12 @@ logo <- "figures/lungblue.png"
 sgrq <- hexSticker::sticker(logo, 
                package="sgrqr", 
                s_x = 1, # horizontal position of subplot
-               s_y = 1.2, # vertical position of subplot
+               s_y = 1.1, # vertical position of subplot
                s_width = 0.6, # width of subplot
                s_height = 0.6, # height of subplot
                p_size = 14, # font size
                p_x = 1, # horizontal position of font
-               p_y = .53, # vertical position of font
+               p_y = .45, # vertical position of font
                p_color = "#0EB4DE", # font colour
                h_size = 2, # hexagon border size
                h_fill = "#0E163D", # hexagon fill colour
