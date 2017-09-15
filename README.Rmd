@@ -45,7 +45,12 @@ sgrq <- hexSticker::sticker(logo,
                h_color = "#0EB4DE", # hexagon border colour
                url = "St Georg Respiratory Questionnaire (SGRQ)", # url at lower border
                u_color = "#0EB4DE",
-               u_size = 3)
+               u_size = 3,
+               spotlight = TRUE,
+               l_y = 1.05, 
+               l_x = 1.25,
+               l_height = 2.5,
+               l_width = 2.25)
 sgrq
 ```
 
