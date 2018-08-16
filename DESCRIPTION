@@ -1,8 +1,9 @@
 Package: sgrqr
 Type: Package
-Title: Scoring of the St. George Respiratory Questionnaire (SGRQ)
+Title: Scoring of the St George's Respiratory Questionnaire (SGRQ)
 Version: 0.1.1
-Authors@R: person("Norbert", "Koehler", email = "norbert.r.koehler@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Norbert", "Koehler", email = "norbert.r.koehler@gmail.com", role = c("aut", "cre"),
+orcid = "https://orcid.org/0000-0003-0724-3825")
 Maintainer: Norbert Koehler <norbert.r.koehler@gmail.com>
 Description: Scoring the St George's Respiratory Questionnaire (SGRQ)
 Imports: dplyr
