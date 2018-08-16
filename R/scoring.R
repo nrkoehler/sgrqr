@@ -60,7 +60,6 @@ scoring_sgrq <- function( X, id = '') {
   }
   if (max(X[, items[26]], na.rm = T) > 2) {
     stop("Maximum possible value for items is 2")
-
     break
   }
   if (id != "") {

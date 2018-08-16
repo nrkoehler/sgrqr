@@ -1,10 +1,10 @@
 Package: sgrqr
 Type: Package
 Title: Scoring of the St. George Respiratory Questionnaire (SGRQ)
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Norbert", "Koehler", email = "norbert.r.koehler@gmail.com", role = c("aut", "cre"))
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: Scoring the St. George Respiratory Questionnaire (SGRQ)
+Maintainer: Norbert Koehler <norbert.r.koehler@gmail.com>
+Description: Scoring the St George's Respiratory Questionnaire (SGRQ)
 Imports: dplyr
 Depends: dplyr
 License: MRT
